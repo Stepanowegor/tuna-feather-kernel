@@ -95,6 +95,7 @@ kernel/net/netfilter/xt_comment.ko
 kernel/net/netfilter/xt_connbytes.ko
 kernel/net/netfilter/xt_connlimit.ko
 kernel/net/netfilter/xt_conntrack.ko
+kernel/net/netfilter/xt_ecn.ko
 kernel/net/netfilter/xt_hashlimit.ko
 kernel/net/netfilter/xt_helper.ko
 kernel/net/netfilter/xt_hl.ko

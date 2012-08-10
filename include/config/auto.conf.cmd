@@ -595,21 +595,18 @@ deps_config := \
 	drivers/scsi/libsas/Kconfig \
 	drivers/scsi/Kconfig \
 	drivers/ide/Kconfig \
-	drivers/misc/modem_if/Kconfig \
+	drivers/misc/mei/Kconfig \
+	drivers/misc/altera-stapl/Kconfig \
 	drivers/misc/carma/Kconfig \
 	drivers/misc/lis3lv02d/Kconfig \
 	drivers/misc/ti-st/Kconfig \
-	drivers/misc/iwmc3200top/Kconfig \
-	drivers/misc/inv_mpu/pressure/Kconfig \
-	drivers/misc/inv_mpu/compass/Kconfig \
-	drivers/misc/inv_mpu/accel/Kconfig \
-	drivers/misc/inv_mpu/Kconfig \
 	drivers/misc/cb710/Kconfig \
 	drivers/misc/eeprom/Kconfig \
 	drivers/misc/c2port/Kconfig \
 	drivers/misc/Kconfig \
 	drivers/s390/block/Kconfig \
 	drivers/block/drbd/Kconfig \
+	drivers/block/mtip32xx/Kconfig \
 	drivers/block/paride/Kconfig \
 	drivers/block/Kconfig \
 	drivers/pnp/pnpacpi/Kconfig \
@@ -630,6 +627,11 @@ deps_config := \
 	drivers/base/regmap/Kconfig \
 	drivers/base/Kconfig \
 	drivers/Kconfig \
+	drivers/nfc/Kconfig \
+	net/nfc/llcp/Kconfig \
+	net/nfc/hci/Kconfig \
+	net/nfc/nci/Kconfig \
+	net/nfc/Kconfig \
 	net/ceph/Kconfig \
 	net/caif/Kconfig \
 	net/9p/Kconfig \
@@ -659,14 +661,15 @@ deps_config := \
 	net/can/Kconfig \
 	drivers/net/hamradio/Kconfig \
 	net/ax25/Kconfig \
+	net/openvswitch/Kconfig \
 	net/batman-adv/Kconfig \
 	net/dns_resolver/Kconfig \
 	net/dcb/Kconfig \
 	net/sched/Kconfig \
+	net/mac802154/Kconfig \
 	net/ieee802154/Kconfig \
 	net/phonet/Kconfig \
 	net/wanrouter/Kconfig \
-	net/econet/Kconfig \
 	net/lapb/Kconfig \
 	net/x25/Kconfig \
 	drivers/net/appletalk/Kconfig \
@@ -702,11 +705,12 @@ deps_config := \
 	kernel/power/Kconfig \
 	fs/Kconfig.binfmt \
 	drivers/cpuidle/Kconfig \
+	drivers/cpufreq/Kconfig.powerpc \
+	drivers/cpufreq/Kconfig.arm \
 	drivers/cpufreq/Kconfig.x86 \
 	drivers/cpufreq/Kconfig \
 	mm/Kconfig \
 	kernel/Kconfig.preempt \
-	kernel/time/Kconfig \
 	drivers/pcmcia/Kconfig \
 	drivers/pci/Kconfig \
 	arch/arm/common/Kconfig \
@@ -724,24 +728,18 @@ deps_config := \
 	drivers/sh/intc/Kconfig \
 	drivers/sh/Kconfig \
 	arch/arm/mach-shmobile/Kconfig \
-	arch/arm/mach-exynos4/Kconfig \
+	arch/arm/mach-exynos/Kconfig \
 	arch/arm/mach-s5pv210/Kconfig \
 	arch/arm/mach-s5pc100/Kconfig \
 	arch/arm/mach-s5p64x0/Kconfig \
 	arch/arm/mach-s3c64xx/Kconfig \
-	arch/arm/mach-s3c2443/Kconfig \
 	arch/arm/mach-s3c2440/Kconfig \
-	arch/arm/mach-s3c2416/Kconfig \
 	arch/arm/mach-s3c2412/Kconfig \
-	arch/arm/mach-s3c2410/Kconfig \
-	arch/arm/mach-s3c2400/Kconfig \
-	arch/arm/mach-tcc8k/Kconfig \
-	arch/arm/plat-tcc/Kconfig \
+	arch/arm/mach-s3c24xx/Kconfig \
 	arch/arm/mach-spear6xx/Kconfig \
 	arch/arm/mach-spear3xx/Kconfig \
 	arch/arm/mach-spear13xx/Kconfig \
 	arch/arm/plat-spear/Kconfig \
-	arch/arm/plat-s5p/Kconfig \
 	arch/arm/plat-s3c24xx/Kconfig \
 	arch/arm/plat-samsung/Kconfig \
 	arch/arm/mach-sa1100/Kconfig \
@@ -753,7 +751,6 @@ deps_config := \
 	arch/arm/mach-omap2/Kconfig \
 	arch/arm/mach-omap1/Kconfig \
 	arch/arm/plat-omap/Kconfig \
-	arch/arm/mach-nuc93x/Kconfig \
 	arch/arm/plat-nomadik/Kconfig \
 	arch/arm/mach-nomadik/Kconfig \
 	arch/arm/mach-netx/Kconfig \
@@ -764,12 +761,8 @@ deps_config := \
 	arch/arm/plat-mxc/Kconfig \
 	arch/arm/mach-mv78xx0/Kconfig \
 	arch/arm/mach-msm/Kconfig \
-	arch/arm/mach-lpc32xx/Kconfig \
-	arch/arm/mach-loki/Kconfig \
 	arch/arm/mach-ks8695/Kconfig \
 	arch/arm/mach-kirkwood/Kconfig \
-	arch/arm/mach-ixp23xx/Kconfig \
-	arch/arm/mach-ixp2000/Kconfig \
 	arch/arm/mach-ixp4xx/Kconfig \
 	arch/arm/mach-iop13xx/Kconfig \
 	arch/arm/mach-iop33x/Kconfig \
@@ -785,13 +778,16 @@ deps_config := \
 	arch/arm/mach-clps711x/Kconfig \
 	arch/arm/mach-bcmring/Kconfig \
 	arch/arm/mach-at91/Kconfig \
+	arch/arm/mach-mvebu/Kconfig \
 	kernel/Kconfig.freezer \
 	kernel/Kconfig.locks \
 	block/Kconfig.iosched \
+	block/partitions/Kconfig \
 	block/Kconfig \
 	kernel/gcov/Kconfig \
 	arch/Kconfig \
 	usr/Kconfig \
+	kernel/time/Kconfig \
 	kernel/irq/Kconfig \
 	init/Kconfig \
 	arch/arm/Kconfig \

@@ -90,6 +90,7 @@ void acpi_hw_execute_sleep_method(char *method_pathname, u32 integer_argument)
  * FUNCTION:    acpi_hw_extended_sleep
  *
  * PARAMETERS:  sleep_state         - Which sleep state to enter
+ *              flags               - ACPI_EXECUTE_GTS to run optional method
  *
  * RETURN:      Status
  *
@@ -99,7 +100,7 @@ void acpi_hw_execute_sleep_method(char *method_pathname, u32 integer_argument)
  *
  ******************************************************************************/
 
-acpi_status acpi_hw_extended_sleep(u8 sleep_state)
+acpi_status acpi_hw_extended_sleep(u8 sleep_state, u8 flags)
 {
 	acpi_status status;
 	u8 sleep_type_value;
@@ -123,6 +124,12 @@ acpi_status acpi_hw_extended_sleep(u8 sleep_state)
 	}
 
 	acpi_gbl_system_awake_and_running = FALSE;
+
+	/* Optionally execute _GTS (Going To Sleep) */
+
+	if (flags & ACPI_EXECUTE_GTS) {
+		acpi_hw_execute_sleep_method(METHOD_PATHNAME__GTS, sleep_state);
+	}
 
 	/* Flush caches, as per ACPI specification */
 
@@ -165,6 +172,7 @@ acpi_status acpi_hw_extended_sleep(u8 sleep_state)
  * FUNCTION:    acpi_hw_extended_wake_prep
  *
  * PARAMETERS:  sleep_state         - Which sleep state we just exited
+ *              flags               - ACPI_EXECUTE_BFS to run optional method
  *
  * RETURN:      Status
  *
@@ -173,7 +181,7 @@ acpi_status acpi_hw_extended_sleep(u8 sleep_state)
  *
  ******************************************************************************/
 
-acpi_status acpi_hw_extended_wake_prep(u8 sleep_state)
+acpi_status acpi_hw_extended_wake_prep(u8 sleep_state, u8 flags)
 {
 	acpi_status status;
 	u8 sleep_type_value;
@@ -192,6 +200,11 @@ acpi_status acpi_hw_extended_wake_prep(u8 sleep_state)
 				 &acpi_gbl_FADT.sleep_control);
 	}
 
+	/* Optionally execute _BFS (Back From Sleep) */
+
+	if (flags & ACPI_EXECUTE_BFS) {
+		acpi_hw_execute_sleep_method(METHOD_PATHNAME__BFS, sleep_state);
+	}
 	return_ACPI_STATUS(AE_OK);
 }
 
@@ -209,7 +222,7 @@ acpi_status acpi_hw_extended_wake_prep(u8 sleep_state)
  *
  ******************************************************************************/
 
-acpi_status acpi_hw_extended_wake(u8 sleep_state)
+acpi_status acpi_hw_extended_wake(u8 sleep_state, u8 flags)
 {
 	ACPI_FUNCTION_TRACE(hw_extended_wake);
 
